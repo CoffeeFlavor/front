@@ -1,0 +1,55 @@
+body {
+    padding-top: 30px;
+}
+div,ul,li,a,h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+html{
+    color: #111;
+    background: #fff;
+}
+
+body,th,td{
+    font: 12px Helvetica,Arial,sans-serif;
+    line-height: 1.62;
+}
+form{
+    margin: 0;
+    padding:0;
+    border: 0px;
+}
+input{
+    margin-right: 3px;
+    vertical-align: middle;
+    font-size: 12px;
+}
+a:visited{
+    color: #669;
+    text-decoration: none;
+}
+a:link{
+    color: #37a;
+    text-decoration: none;
+}
+a{
+    cursor: pointer;
+}
+label{
+    font-family: Tahoma;
+    vertical-align: middle;
+}
+ul,ol{
+    list-style: none;
+}
+
+h2{
+    font: 15px Arial, Helvetica, sans-serif;
+    color: #072;
+    margin: 0 0 12px 0;
+    line-height: 150%;
+}
+.mod{
+    width: auto;
+    margin-bottom: 30px;
+}

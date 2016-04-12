@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <base href="<%=basePath%>">
+    <title>My WebSocket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<style>
+    .message_content {
+        border: 1px solid #ddd;
+        border-top-left-radius: 4px;
+        width: 70%;
+        height: 580px;
+        margin: 50px 5px 20px 30px;
+        display: inline-block;
+        overflow: auto;
+    }
+
+    .member_side {
+        border: 1px solid #ddd;
+        border-top-left-radius: 4px;
+        width: 20%;
+        height: 580px;
+        display: inline-block;
+        /*background-color: white;*/
+        position: relative;
+        margin: 50px 30px 0px ;
+        float: right;
+    }
+
+    .send {
+        background-color: coral;
+        width: 100px;
+        height: 70px;
+        border: 1px solid coral;
+        border-radius: 8px;
+        color: white;
+        font-size: 25px;
+        font-weight: 700;
+        display: inline-block;
+        float: right;
+        margin-right: 70px;
+        margin-top: 5px;
+    }
+
+    .message_input {
+        height: 85px;
+        width: 70%;
+        margin-left: 20px;
+        margin-bottom: 35px;
+        border:1px solid white;
+        margin-right: 20px;
+        resize: none;
+        border-radius: 4px;
+        display: inline-block;
+    }
+    a{
+        cursor: pointer;
+    }
+    .friend_chat{
+        background-color: rgba(11, 147, 222, 0.24);
+        float: left;
+        width: 300px;
+    }
+    .self_chat{
+        background-color: rgba(10, 64, 95, 0.24);
+        width: 150px;
+        float: right;
+        position: relative;
+    }
+
+    ::-webkit-scrollbar {
+         width: 10px;
+    }
+    .chat-thread{
+        height: 580px;
+    }
+    .chat-thread li {
+        position: relative;
+        clear: both;
+        display: inline-block;
+        padding: 16px 40px 16px 20px;
+        margin: 0 0 20px 0;
+        font: 16px/20px 'Noto Sans', sans-serif;
+        border-radius: 10px;
+        background-color: rgba(25, 147, 147, 0.2);
+    }
+    .chat-thread li:before {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        content: '';
+    }
+    .chat-thread li:nth-child(odd) {
+        animation: show-chat-odd 0.15s 1 ease-in;
+        -moz-animation: show-chat-odd 0.15s 1 ease-in;
+        -webkit-animation: show-chat-odd 0.15s 1 ease-in;
+        float: right;
+        margin-right: 80px;
+        color: #0AD5C1;
+    }
+    .chat-thread li:nth-child(odd):before {
+        right: -80px;
+        background-image: url(https://img3.doubanio.com/f/sns/19886d443852bee48de2ed91f4a3bdfdaf8c809c/pics/nav/logo_db.png);
+    }
+    .chat-thread li:nth-child(odd):after {
+        border-right: 15px solid transparent;
+        right: -15px;
+    }
+    .chat-thread li:nth-child(even):after {
+        border-left: 15px solid transparent;
+        left: -15px;
+    }
+    .chat-thread li:nth-child(even) {
+        animation: show-chat-even 0.15s 1 ease-in;
+        -moz-animation: show-chat-even 0.15s 1 ease-in;
+        -webkit-animation: show-chat-even 0.15s 1 ease-in;
+        float: left;
+        margin-left: 80px;
+        color: #0EC879;
+    }
+    .chat-thread li:nth-child(even):before {
+        left: -80px;
+        background-image: url(https://img3.doubanio.com/f/sns/19886d443852bee48de2ed91f4a3bdfdaf8c809c/pics/nav/logo_db.png);
+    }
+    .chat-thread li:after {
+        position: absolute;
+        top: 15px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 15px solid rgba(25, 147, 147, 0.2);
+    }
+</style>
+
+<div class="" style="width:50%;margin-left: 20%;margin-top: 100px;background:-webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192c46 50%, #22254c 75%, #22254c 100%)">
+    <div>
+        <div id="content" class="message_content">
+            <ul class="chat-thread">
+                <li>Are we meeting today?</li>
+                <li>yes, what time suits you?</li>
+                <li>I was thinking after lunch, I have a meeting in the morning</li>
+                <li>Are we meeting today?</li>
+                <li>yes, what time suits you?</li>
+                <li>I was thinking after lunch, I have a meeting in the morning</li>
+                <li>Are we meeting today?</li>
+                <li>yes, what time suits you?</li>
+                <li>I was thinking after lunch, I have a meeting in the morning</li>
+                <li>Are we meeting today?</li>
+                <li>yes, what time suits you?</li>
+                <li>I was thinking after lunch, I have a meeting in the morning</li>
+            </ul>
+            <!--<div class="friend_chat">-->
+                <!--<span>jenne:</span>-->
+                <!--henhao看见了疯狂老师的了解-->
+            <!--</div>-->
+            <!--<div class="friend_chat">-->
+                <!--<span>loop:</span>-->
+                <!--henhao的撒加几块几块的附加费多可怜的反馈及发动机-->
+            <!--</div>-->
+            <!--<div class="self_chat">-->
+                <!--<span>loop:</span>-->
+                <!--henhao的撒加几块几块的附加费多可怜的反馈及发动机-->
+            <!--</div>-->
+            <!--<br>-->
+            <!--<div class="self_chat">-->
+                <!--<span>loop:</span>-->
+                <!--henhao的撒加几块几块的附加费多可怜的反馈及发动机-->
+            <!--</div>-->
+        </div>
+        <div id="site" class="member_side">
+            <ul>
+                <li>
+                    <a onclick="toMember()">jennie</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+        <div>
+            <textarea id="toMember" class="message_input"></textarea>
+            <button class="send"  onclick="send()">发送</button>
+        </div>
+</div>
+Welcome<br/>
+<div style="display: none" id="chat">
+    <input id="text" type="text"/>
+    <br/>
+    用户名
+    <br/>
+    <input  type="text"/>
+    <button onclick="send()">Send</button>
+    <button onclick="closeWebSocket()">Close</button>
+</div>
+<div id="login">
+    请输入你的用户名
+    <input type="text" id="member">
+    <button onclick="login()">Send</button>
+</div>
+<div id="message">
+</div>
+</body>
+<!--
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("login").style.display = "block";
+        document.getElementById("chat").style.display = "none";
+    }
+    var websocket = null;
+
+    //判断当前浏览器是否支持WebSocket
+    if ('WebSocket' in window) {
+        websocket = new WebSocket("ws://localhost:8082/websocket");
+    }
+    else {
+        alert('Not support websocket')
+    }
+
+    //连接发生错误的回调方法
+    websocket.onerror = function () {
+        setMessageInnerHTML("error");
+    };
+
+    //连接成功建立的回调方法
+    websocket.onopen = function (event) {
+        setMessageInnerHTML("open");
+    }
+
+    //接收到消息的回调方法
+    websocket.onmessage = function () {
+        setMessageInnerHTML(event.data);
+    }
+
+    //连接关闭的回调方法
+    websocket.onclose = function () {
+        setMessageInnerHTML("close");
+    }
+
+    //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+    window.onbeforeunload = function () {
+        websocket.close();
+    }
+
+    //将消息显示在网页上
+    function setMessageInnerHTML(innerHTML) {
+        document.getElementById('message').innerHTML += innerHTML + '<br/>';
+    }
+
+
+    //关闭连接
+    function closeWebSocket() {
+        websocket.close();
+    }
+
+    //发送消息
+    function send() {
+        if (document.getElementById('toMember').value.trim().length <= 0) {
+            alert("请输入用户名");
+            return;
+        }
+        if (document.getElementById('text').value.trim().length <= 0) {
+            alert("请输入要发送的内容");
+            return;
+        }
+        var message = {
+            "content": document.getElementById('text').value,
+            "toMember": document.getElementById('toMember').value,
+            "user": document.getElementById('member').value,
+            "isLogin": false
+        }
+        websocket.send(JSON.stringify(message));
+    }
+    function login() {
+        var message = {
+            "member": document.getElementById('member').value,
+            "isLogin": true
+        }
+        websocket.send(JSON.stringify(message));
+        document.getElementById("login").style.display = "none";
+        document.getElementById("chat").style.display = "block";
+    }
+    </script>
+    /-->
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <TITLE>华码-读卡demo</TITLE>
+    <META http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <META content="MSHTML 6.00.2900.6287" name=GENERATOR>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=8" /> -->
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <!--<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>-->
+    <!--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
+    <![endif]-->
+    <style>
+        #panel {
+            width: 1000px;
+            border: 1px solid transparent;
+            border-color: #337ab7;
+            border-radius: 4px;
+            margin-left: 20%;
+        }
+
+        h3 {
+            position: relative;
+            color: white;
+            margin: 0px auto 8px 20px;
+            line-height: 40px;
+        }
+
+        .title {
+            height: 40px;
+            background-color: #337ab7;
+            border-radius: 4px;
+        }
+
+        label {
+            display: inline-block;
+            font-weight: 700;
+            position: relative;
+            max-width: 100%;
+            width: 16.66666667%;
+            text-align: right;
+        }
+
+        .inputDiv {
+            display: inline-block;
+            margin-left: 40px;
+            line-height: 1.42857143;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+
+        }
+        .trClass{
+            margin: 12px auto 12px 20px;
+        }
+        .inputDiv input{
+            width: 500px;
+            height: 24px;
+            border-radius: 4px;
+            padding: 6px 12px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+
+        }
+        .readId button{
+            background-color: #3CA353;
+            border: 1px solid ;
+            border-color: #ffF;
+            margin: 10px;
+            height: 36px;
+            width: 120px;
+            color: #fff;
+            border-radius: 6px;
+        }
+        .readId {
+            margin-left: 100px;
+        }
+        
+        .content{
+        }
+    </style>
+</head>
+<SCRIPT language=JavaScript>
+
+    function ReadIDCard() {
+        clearForm();
+        var ret = CVR_IDCard.ReadCard();
+        if (ret == "0") {
+            fillForm();
+            return;`    `
+        }
+
+        alert("读卡错误,错误原因:" + ret);
+    }
+
+    function fillForm() {
+        var pName = CVR_IDCard.Name;
+        var pSex = CVR_IDCard.Sex;
+        var pNation = CVR_IDCard.Nation;
+        var pBorn = CVR_IDCard.Born;
+        var pAddress = CVR_IDCard.Address;
+        var pCardNo = CVR_IDCard.CardNo;
+        var pPolice = CVR_IDCard.IssuedAt;
+        var pActivityLFrom = CVR_IDCard.EffectedDate;
+        var pActivityLTo = CVR_IDCard.ExpiredDate;
+        var pDeviceNo = CVR_IDCard.CardReaderId;
+        var pPhotoBuffer = CVR_IDCard.Picture;
+
+        document.getElementById('Name').value = pName;
+        document.getElementById('Sex').value = pSex;
+        document.getElementById('Nation').value = pNation;
+        document.getElementById('Born').value = pBorn;
+        document.getElementById('Address').value = pAddress;
+        document.getElementById('CardNo').value = pCardNo;
+        document.getElementById('Police').value = pPolice;
+        document.getElementById('ActivityLFrom').value = pActivityLFrom;
+        document.getElementById('DeviceNo').value = pDeviceNo;
+        document.getElementById('ActivityLTo').value = pActivityLTo;
+        document.getElementById('PhotoBuffer').value = pPhotoBuffer;
+        document.getElementById('PhotoDisplay').src = 'data:image/jpeg;base64,' + pPhotoBuffer;
+    }
+
+    function clearForm() {
+        document.getElementById('Name').value = '';
+        document.getElementById('Sex').value = '';
+        document.getElementById('Nation').value = '';
+        document.getElementById('Born').value = '';
+        document.getElementById('Address').value = '';
+        document.getElementById('CardNo').value = '';
+        document.getElementById('Police').value = '';
+        document.getElementById('ActivityLFrom').value = '';
+        document.getElementById('ActivityLTo').value = '';
+        document.getElementById('PhotoBuffer').value = '';
+        document.getElementById('PhotoDisplay').src = '';
+        document.getElementById('DeviceNo').value = '';
+    }
+
+</SCRIPT>
+<body>
+<OBJECT id=CVR_IDCard height=0 width=0 classid=clsid:10946843-7507-44FE-ACE8-2B3483D179B7 name=CVR_IDCard></OBJECT>
+
+<div id="panel">
+    <div class="title">
+        <h3>华码-读卡demo</h3>
+    </div>
+    <div id="content">
+        <form>
+            <div class="trClass">
+                <label for="Name">姓名</label>
+                <div class="inputDiv">
+                    <input type="text" id="Name" placeholder="姓名">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="Sex">性别</label>
+                <div class="inputDiv">
+                    <input type="text" id="Sex" placeholder="性别">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="Nation">民族</label>
+                <div class="inputDiv">
+                    <input type="text" id="Nation" placeholder="民族">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="Born">出生</label>
+                <div class="inputDiv">
+                    <input type="text" id="Born" placeholder="出生">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="Address">地址</label>
+                <div class="inputDiv">
+                    <input type="text" id="Address" placeholder="地址">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="CardNo">身份证号</label>
+                <div class="inputDiv">
+                    <input type="text"  tyle="COLOR: #ff0000" id="CardNo" placeholder="身份证号">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="Police">签发机关</label>
+                <div class="inputDiv">
+                    <input type="text" id="Police" placeholder="签发机关">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="ActivityLFrom">期限起始</label>
+                <div class="inputDiv">
+                    <input type="text" class="form-control" id="ActivityLFrom" placeholder="期限起始">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="ActivityLTo">期限失效</label>
+                <div class="inputDiv">
+                    <input type="text" id="ActivityLTo" placeholder="期限失效">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="DeviceNo">设备ID</label>
+                <div class="inputDiv">
+                    <input type="text" id="DeviceNo" placeholder="设备ID">
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="PhotoBuffer">照片编码</label>
+                <div class="inputDiv">
+                    <textarea id="PhotoBuffer"></textarea>
+                </div>
+            </div>
+            <div class="trClass">
+                <label for="PhotoDisplay">照片</label>
+                <div class="imgDiv">
+                    <img src="" id="PhotoDisplay" class="img-rounded">
+                </div>
+            </div>
+            <div class="readId">
+                <div class="inputDiv">
+                    <button type="button" onclick="ReadIDCard()">读取身份证</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,456 @@
+html{
+    color: #111;
+    background: #fff;
+}
+#anony-nav{
+    width: 950px;
+    margin: 0 auto 25px;
+}
+#anony-nav .anony-nav-links{
+    float: right;
+    margin-top: 6px;
+}
+
+#anony-nav .anony-nav-links li{
+    display: inline-block;
+    zoom: 1;
+    margin: 0 0 0 17px;
+}
+
+#anony-nav .anony-nav-links li a{
+    display: inline-block;
+    zoom: 1;
+    width: 40px;
+    height: 20px;
+    overflow: hidden;
+    margin: 0;
+    line-height: 20em;
+    outline: none;
+    vertical-align: middle;
+    background: transparent url("../img/anony_nav_logo.png") no-repeat 100% 100%;
+    /*background-image: -image-set(url("../img/anony_nav_logo.png")) 1x;*/
+}
+
+#anony-nav .anony-nav-links li .lnk-book{
+    background-position: 0 0;
+}
+#anony-nav .anony-nav-links li .lnk-move{
+    background-position: -60px 0;
+}
+#anony-nav .anony-nav-links li .lnk-music{
+    background-position: -120px 0;
+}
+#anony-nav .anony-nav-links li .lnk-group{
+    background-position: -180px 0;
+}
+#anony-nav .anony-nav-links li .lnk-events{
+    background-position: -299px 0;
+}
+#anony-nav .anony-nav-links li .lnk-fm{
+    background-position: -241px 0;
+}
+#anony-nav .anony-nav-links li .lnk-dongxi{
+background-position: -359px 0;
+}
+#anony-nav .anony-nav-links li .lnk-market{
+    background-position: -421px 0;
+}
+
+#anony-nav h1 {
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+    width: 160px;
+    height: 34px;
+    margin: 0 20px 0 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+    background: url("../img/logo_db.png") no-repeat 0 0;
+    overflow: hidden;
+}
+#anony-nav h1 a{
+    display: block;
+    height: 34px;
+    line-height: 10em;
+}
+#anony-nav .anony-srh{
+    position: relative;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+    width: 270px;
+    height: 30px;
+    border: 1px solid #c3c3c3;
+}
+#anony-nav .anony-srh .inp{
+    display: block;
+    height: 30px;
+    overflow: hidden;
+}
+#anony-nav .anony-srh .bn{
+    position:absolute;
+    right:0;
+    top:0;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    background: url("../img/bn_srh_1.png") 50% 50% no-repeat;
+}
+#anony-nav form{
+    margin: 0;
+    padding:0;
+}
+
+#anony-nav .anony-srh .bn input{
+    border: none;
+    background: transparent;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+    cursor: pointer;
+    color: transparent;
+}
+#anony-nav .anony-srh .inp input{
+    width: 240px;
+    border: none;
+    font-size: 13px;
+    height: 20px;
+    padding: 5px;
+}
+
+#anony-reg-new {
+    margin-bottom: 25px;
+    background: #eef4ed;
+}
+.wrapper{
+    width: 950px;
+    margin: 0 auto;
+}
+#anony-reg-new .wrapper{
+    position: relative;
+    padding: 28px 0 4px;
+    overflow: visible;
+    zoom: 1;
+}
+
+#anony-reg-new .wrapper .login{
+    position: relative;
+}
+#anony-reg-new .login{
+    width: 270px;
+    float: right;
+    margin-bottom: 15px;
+    font-size: 0;
+    letter-spacing: -.31em;
+}
+
+#anony-reg-new .login fieldset{
+    margin: 0;
+    padding:0;
+    border: none;
+}
+
+#anony-reg-new .wrapper .login,#anony-reg-new .wrapper .app{
+    z-index: 2;
+}
+#anony-reg-new .login .item{
+    position: relative;
+    margin-bottom: 4px;
+}
+#anony-reg-new .login .item,#anony-reg-new .login .item-submit{
+    vertical-align: top;
+    text-align: left;
+    font-size:0;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+#anony-reg-new .login .item .inp {
+    border: 1px solid #DBE5DB;
+    border-radius: 2px;
+    width: 252px;
+    padding: 0 8px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+#anony-reg-new .login .item.item-passwd{
+    position: relative;
+    border: 1px solid #DBE5DB;
+    border-radius: 2px;
+    background: #fff;
+    width: 268px;
+}
+#anony-reg-new .login .item .item-passwd input{
+    border: 0;
+    width: 220px;
+}
+#anony-reg-new .login .item.item-passwd .opt{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 12px;
+    line-height: 35px;
+}
+#anony-reg-new .login .item.item-passwd .opt a{
+    color:#ccc;
+}
+
+#anony-reg-new .login .bn-submit{
+    -webkit-appearance: none;
+    padding:0 22px;
+    margin-right: 0px;
+    height: 30px;
+    font-size: 12px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    background: #30A080;
+    border-color: #30A080;
+    color: #fff;
+    width: 89px;
+    box-sizing: content-box;
+}
+#anony-reg-new .lnk-reg:link,#anony-reg-new .lnk-reg:visited,#anony-reg-new .lnk-reg:active{
+    color: #30A080;
+    background: transparent;
+}
+
+#anony-reg-new .lnk-reg{
+    display: inline-block;
+    zoom: 1;
+    border: 1px solid #30A080;
+    width: 89px;
+    padding: 8px 21px 7px;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    margin-left: 4px;
+    vertical-align: top;
+    color: #30A080;
+}
+#anony-reg-new .app{
+    position: absolute;
+    height: 120px;
+    top:0;
+    bottom: 0;
+    margin: auto 0 auto 400px;
+}
+#anony-reg-new .app-title{
+    margin: 7px;
+    font-size: 25px;
+    color: #111;
+    line-height: 24px;
+    -webkit-font-smoothing: antialiased;
+    --moz-osx-font-smoothing:grayscale;
+    text-rendering: optimizelegibility;
+}
+
+#anony-reg-new .wrapper::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: -75px;
+    right:0;
+    z-index: 0;
+    background: url("../img/doubanapp3.png") no-repeat left top;
+    background-image: -webkit-image-set(url("../img/doubanapp3.png")) 1x,
+    url("../img/doubanapp3@2x.png") 2x;
+
+}
+
+#anony-reg-new .wrapper::after{
+    content: "\0020";
+    display: block;
+    clear: both;
+}
+
+#anony-reg-new .app-title span{
+    color: #666;
+    margin-left: 10px;
+    font-weight: 100;
+}
+#anony-reg-new .app-qr{
+    display: inline-block;
+    zoom: 1;
+    position: relative;
+}
+#anony-reg-new .app-qr img{
+    padding: 0;
+    margin: 0;
+}
+#anony-reg-new .lnk-qr:link,
+#anony-reg-new .lnk-qr:visited,
+#anony-reg-new .lnk-qr:hover,
+#anony-reg-new .lnk-qr:active{
+    background: transparent;
+}
+#anony-reg-new .lnk-qr{
+    display: inline-block;
+    zoom: 1;
+    border: 1px solid #48aa0d;
+    border-radius: 2px;
+}
+#anony-reg-new .app-qr-expand{
+    display: none;
+    position: absolute;
+    top: 0;
+    left:0;
+    padding: 20px 20px 5px;
+    border: 1px solid #4a480d;
+    border-radius: 2px;
+    text-align: center;
+    color: #666;
+    background: #fff;
+    line-height: 13px;
+    white-space:nowrap ;
+}
+#anony-reg-new .login .item-action{
+    font-size: 12px;
+    margin-top: 8px;
+    overflow: hidden;
+    color: #666;
+}
+#anony-reg-new .login .item-action-third{
+    float: right;
+    font-size: 0;
+    margin-top: 3px;
+    margin-right: 4px;
+}
+
+#anony-reg-new .login .item-action-third li{
+    display: inline-block;
+}
+
+#anony-reg-new .login .item-action-third a{
+    color: #37a;
+}
+#anony-reg-new .login .item-action-third a::before{
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height:12px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+#anony-reg-new
+.login .item-action-third
+.wechat::before{
+    background-image: url("https://img3.doubanio.com/f/sns/4f36445742b91d6a68fcc644827a00bcd536a4bb/pics/sns/anony_home/login/wechat.png");
+}
+
+#anony-reg-new .login .item-action-third .weibo::before{
+    background-image: url("https://img3.doubanio.com/f/sns/875cb9fc6e5463efbfcdaaecb05c103a2864a68d/pics/sns/anony_home/login/weibo.png");
+}
+
+#anony-reg-new .login .item-action-third li+li{
+    margin-left: 8px;
+}
+
+#anony-reg-new  .lnk-app,#anony-reg-new  .lnk-app:link{
+    background: #3CA353;
+    color: #fff;
+}
+#anony-reg-new .lnk-app{
+    font-size: 12px;
+    display: inline-block;
+    padding: 9px 21px 8px;
+    margin-right: 2px;
+    vertical-align: middle;
+    line-height: 1;
+    border-radius: 2px;
+    zoom:1;
+    background: #3CA353;
+    color: #fff;
+}
+.section{
+    padding: 10px 0;
+    margin-bottom: 30px;
+    min-height: 200px;
+}
+.section .wrapper{
+    zoom: 1;
+}
+.section .wrapper::before{
+    content: '\0020';
+    clear: both;
+    display: block;
+}
+.section .main{
+    zoom: 1;
+    overflow: hidden;
+}
+.mod{
+    margin-bottom: 30px;
+}
+#anony-sns .albums{
+    float:left;
+    width: 350px;
+    margin-right: 30px;
+    color: #999;
+    font-size: 0;
+    letter-spacing: -0.31em;
+}
+
+#anony-sns .albums ul{
+    margin: -10px 0 0 -10px;
+}
+#anony-sns .albums li{
+    display: inline-block;
+    zoom: 1;
+    letter-spacing: normal;
+    width: 170px;
+    vertical-align: top;
+    font-size: 12px;
+    margin: 10px 0 0 10px;
+}
+#anony-sns .albums .pic{
+    display: inline-block;
+    zoom: 1;
+    width: 170px;
+    max-height: 170px;
+    overflow: hidden;
+    vertical-align:middle;
+    white-space: nowrap;
+}
+#anony-sns .notes{
+    overflow: hidden;
+    zoom: 1;
+    color: #666;
+}
+#anony-sns .notes .author{
+    color: #999;
+}
+#anony-sns .notes .first{
+    margin-top:0;
+}
+#anony-sns .notes p{
+    margin: 0;
+}
+#anony-sns .notes li{
+    margin-top: 12px;
+    word-wrap:  break-word;
+}
+.section .side{
+    float: right;
+    width: 265px;
+    margin-left: 30px;
+}
+.p1{
+    font: 12px Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    color: #666666;
+}
+#anony-sns .online ul{
+    margin-top: -4px;
+}
+#anony-sns .online li{
+    margin-top: 10px;
+    color: #999;
+}
