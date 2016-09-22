@@ -52,6 +52,7 @@
         $('span').bind("click",function (e) {
             var txt=$("#msg").html()+"<p>内层span元素被点击</p>";
             $("#msg").html(txt);
+            alert("current mouse position: "+e.pageX+","+e.pageY)
            return false;
         })
         $("#content").bind("click",function (e) {
@@ -72,6 +73,9 @@
             }
         })
 
+        $("#username").keyup(function (e) {
+            alert(e.which)
+        })
     })
 
 </script>
